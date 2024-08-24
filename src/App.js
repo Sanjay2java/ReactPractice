@@ -1,43 +1,11 @@
-import React, { useState } from "react";
-import style from "./style.css";
-import Todolist from "./Todolist";
+import React from "react";
+import "./App.css";
+import CustomerAdd from "./Redux/CustomerAdd";
 const App = () => {
-  const [inputText, setInputText] = useState("");
-  const [items, setItems] = useState([]);
-
-  function handleChange(event) {
-    const newValue = event.target.value;
-    setInputText(newValue);
-  }
-  function addItem() {
-    setItems((prevItems) => {
-      return [...prevItems, inputText];
-    });
-    setInputText("");
-  }
   return (
-    <div className="container">
-      <div className="heading">
-        <h1>To Do List</h1>
-      </div>
-      <div className="form">
-        <input
-          onChange={handleChange}
-          placeholder="ENTER NAME"
-          type="text"
-          value={inputText}
-        />
-        <button onClick={addItem}>
-          <span>Add</span>
-        </button>
-      </div>
-      <div>
-        <ul>
-          {items.map((todoItem) => (
-            <Todolist text={todoItem} />
-          ))}
-        </ul>
-      </div>
+    <div className="app">
+      <h1>Redux React Customer</h1>
+      <CustomerAdd />
     </div>
   );
 };
